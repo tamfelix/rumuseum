@@ -10,6 +10,8 @@ use App\Models\Product;
 use App\Models\Type;
 use Doctrine\DBAL\Query\QueryException;
 use Illuminate\Http\Request;
+use App\Models\Menu;
+use App\Models\Stock;
 
 class PagesController extends Controller
 {
@@ -18,17 +20,29 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public $news;
+    public $events;
+    public $leftmenu;
+    public $menuitems;
+    public $articles;
+
+    public function __construct()
+    {
+        $this->news = blog::orderBy('created_at', 'asc')->take(4)->get();
+        $this->menuitems = Page::orderBy('orderby', 'asc')->get()->toArray();
+        $this->leftmenu = Menu::orderBy('orderby', 'asc')->get()->toArray();
+       $this->events = Event::orderBy('created_at', 'asc')->take(4)->get();
+       $this->articles = Stock::orderBy('created_at', 'asc')->take(8)->get();
+    }
     public function index()
     {
-        $menuitems = Page::orderBy('orderby', 'asc')->get(['id', 'title_ru', 'link'])->toArray();
-//        $news = blog::orderBy('created_at', 'asc')->take(3)->get();
-//        $events = Event::orderBy('created_at', 'asc')->take(4)->get();
-//        $images = blog::orderBy('created_at', 'asc')->take(8)->get();
         return view('default.default')->with([
-//            'menuitems' => $menuitems,
-//            'news'=> $news,
-//            'events' => $events,
-//            'images' => $images,
+            'menuitems' => $this->menuitems,
+            'leftmenu' => $this->leftmenu,
+            'news'=> $this->news,
+            'events' => $this->events,
+            'articles' => $this->articles,
             ]);
     }
 
@@ -61,13 +75,13 @@ class PagesController extends Controller
      */
     public function show($id)
     {
-        $menuitems = Page::orderBy('orderby', 'asc')->get(['id', 'title', 'link'])->toArray();
+
         $page = Page::where('id', '1')->pluck('name')->implode('');
-        echo $page;
-//        return view("default.$page")->with([
-//            'menuitems'=> $menuitems,
-//
-//        ]);
+
+        return view("layouts.default.$page")->with([
+            'menuitems'=> $this->menuitems,
+
+        ]);
     }
 
     /**

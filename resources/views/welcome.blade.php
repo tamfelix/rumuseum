@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+@php $locale = app()->getLocale() @endphp
+<html lang="{{ str_replace('_', '-', $locale) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>STG</title>
+        <title>Museum</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -59,6 +61,8 @@
 
             /* TOP NAVIGATION */
 
+            .center{margin:auto!important; padding: auto; position:block; text-align: center;
+            }
             .nav-item{
                 height: 40px;
                 border-radius: 0 0 0 30px;
@@ -78,7 +82,7 @@
             }
             /* BANNER 1 */
             .banner{
-                background:url(img/wave1.jpeg);
+                background:url({{ env('APP_URL').'/img/banner1.jpeg'  }});
             }
             .banner__header{
                 color:var(--h-color4);
@@ -131,28 +135,47 @@
 {{--    LOGO--}}
 
     <div class="jumbotron jumbotron-fluid p-3 pl-3">
-        <h1 class="text-3xl font-bold"><a href="/">SwissTech </a></h1>
-        <p class=" mb-4 ">where AI is taking you
+        <h1 class="text-3xl font-bold"><a href="{{ env('APP_URL') }}">
+                {{ __('sections.museum') }}</a>
+        </h1>
+        <p class=" mb-4 ">{{ __('sections.slavistics') }}
         </p>
     </div>
 
     <!-- NAV MENU -->
     <nav class="container-fluid">
 
-        <div class=" inline-flex mb-4 ml-4">
-{{--            sandwich--}}
-            <a>
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="rgba(159, 177, 111, 0.694)" class="bi bi-list" viewBox="0 0 16 16">
+        <div class=" inline-flex mb-4 ml-4 items-center my-auto ">
+            {{--            sandwich--}}
+            <a class="m-auto ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="rgba(159, 177, 111, 0.694)" class="bi bi-list my-auto" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
                 </svg>
             </a>
-            <ul class="navbar col-md-7 p-0 pb-2">
+            <ul class="  flex inline-flex p-0">
                 @foreach($menuitems as $item)
-                    <li class="nav-item w-10 m-3 p-1 pl-4 text-gray-600"><a class="nav-link" href="/{{$item['link']}}">{{$item['title']}}</a></li>
+                    <a class="  " href="{{ route('pages.show', $item['id']) }}">
+                    <li class=" bg-[var(--h-color8)]  text-gray-600 w-[120px] h-[50px] shadow mx-3  text-center  flex items-center text-center px-[10px]">
+                            {{$item['title_'.app()->getLocale()]}}
+                    </li>
+                    </a>
                 @endforeach
             </ul>
+
+
             {{--   SEARCH--}}
-            <input class="search border rounded-full pl-2  w-40 h-7" type="search" value="search..">
+            <input class="search border rounded-full pl-2  w-40 h-7 m-auto" type="search" value="search..">
+            {{-- LANGUAGE CHANGE               --}}
+
+
+            <div class="mx-2 my-auto p-auto ">
+                @foreach(config('app.available_locales') as $area)
+                    <a href="{{request()->url() }}?language={{ $area }}"
+                       class="@if ( app()->getLocale() == $area ) border-b border-white border-b-2  @endif inline-flex items-center px-1 my-auto">
+                        {{strtoupper($area)}}
+                    </a>
+                @endforeach
+            </div>
         </div>
 
 
@@ -199,7 +222,7 @@
                             </svg>
 
                             <a href="#" class="ml-1 underline">
-                                Shop
+                                {{ __('sections.shop') }}
                             </a>
 
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
@@ -207,14 +230,14 @@
                             </svg>
 
                             <a href="https://github.com/sponsors/globalstg" class="ml-1 underline">
-                                Sponsor
+                                {{ __('sections.sponsor') }}
                             </a>
                         </div>
                     </div>
                     {{--   SOCIAL       --}}
                     <div class="inline-flex">
                         {{--                            FB--}}
-                        <a href="http://facebook.com/swisstechglobal" class="m-2">
+                        <a href="https://www.facebook.com/sklavorum/" class="m-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
                                 <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
                             </svg>
@@ -235,12 +258,13 @@
         {{--SECTIONS--}}
         <div class=" col-span-4 h-36 mx-auto pt-10">
             @foreach($menuitems as $item)
-                <a class="col-span-1 font-semibold p-4" href="/{{$item['link']}}">{{$item['title']}}</a>
+                <a class="col-span-1 font-semibold p-4" href="/{{$item['link']}}">
+                    {{$item['title_ru']}}</a>
             @endforeach
         </div>
 {{--COPYRIGHT--}}
 
-        <div>&copy; 2022 SwissTechGlobal SA</div>
+        <div>&copy; 1831-2022 {{ __('sections.museum') }} </div>
 </footer>
 
 

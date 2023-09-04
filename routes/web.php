@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\BlogsController;
-
+use App\Http\Controllers\EventsController;
+use App\Http\Controllers\MenusController;
+use App\Http\Controllers\ProductsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,21 +18,23 @@ use App\Http\Controllers\BlogsController;
 */
 
 Route::get('/', 'PagesController@index');
-//Route::resource('blogs', 'BlogsController'::class);
-//Route::resource('pages', 'PagesController'::class);
-//Route::resource('widgets', 'WidgetsController'::class);
-//Route::resource('events', 'EventsController'::class);
-//Route::resource('images', 'ImagesController'::class);
-//Route::resource('products', 'ProductsController'::class);
-//
-//Route::get('ml', 'PagesController@ml');
-//Route::get('hwr', 'PagesController@hwr');
-//Route::get('contact', 'PagesController@contact');
-//Route::get('types', 'PagesController@types');
-//Route::post('contactus', 'PagesController@contactus');
 
-//Route::get('/dashboard', function () {
-//    return view('dashboard');
-//})->middleware(['auth'])->name('dashboard');
+Route::resource('pages', 'PagesController');
+Route::resource('blogs', 'BlogsController');
+Route::resource('widgets', 'WidgetsController');
+Route::resource('events', 'EventsController');
+Route::resource('stocks', 'StocksController');
+Route::resource('products', 'ProductsController');
+Route::resource('messages', 'MessagesController');
+Route::resource('menus', 'MenusController');
+Route::get('ml', 'PagesController@ml');
+Route::get('hwr', 'PagesController@hwr');
+Route::get('contact', 'PagesController@contact');
+Route::get('types', 'PagesController@types');
+Route::post('contactus', 'PagesController@contactus');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
