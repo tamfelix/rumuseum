@@ -2,11 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
+use App\Models\Collect;
+use App\Models\Download;
 use App\Models\Menu;
+use App\Models\Page;
+use App\Models\Stock;
 use Illuminate\Http\Request;
 
 class MenusController extends Controller
 {
+
+
+    public $news;
+    public $events;
+    public $leftmenu;
+    public $menuitems;
+    public $articles;
+
+    public function __construct()
+    {
+        $this->news = Blog::orderBy('created_at', 'asc')->take(4)->get();
+        $this->menuitems = Page::orderBy('orderby', 'asc')->get()->toArray();
+        $this->leftmenu = Menu::orderBy('orderby', 'asc')->get()->toArray();
+        $this->events = Download::orderBy('created_at', 'asc')->take(4)->get();
+        $this->articles = Stock::orderBy('created_at', 'asc')->take(8)->get();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -46,9 +67,22 @@ class MenusController extends Controller
      */
     public function show(Menu $menu)
     {
-        $link = Menu::where('id', $menu)->get();
-        return view ('layouts.default.menu')->with([
+
+
+        $link = Menu::where('id', $menu->id)->get();
+        $collections = Collect::where('category_id', $menu->id)->get();
+        return view ('layouts.default.collects')->with([
             'link' => $link,
+            'collections' => $collections,
+
+            'menuitems' => $this->menuitems,
+            'leftmenu' => $this->leftmenu,
+            'news'=> $this->news,
+            'events' => $this->events,
+            'articles' => $this->articles,
+
+
+
         ]);
     }
 

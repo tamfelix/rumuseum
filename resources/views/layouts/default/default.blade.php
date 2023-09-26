@@ -25,7 +25,9 @@
 <section class="flex inline-flex">
     <div class="w-1/4 flex flex-col mt-8">
         @foreach($leftmenu as $item)
-            <a class="bg-[var(--h-color8)]  text-gray-600 w-[120px] h-[50px] my-1 pl-3 flex items-center">{{ $item['title_ru'] }}</a>
+            <a href=" {{ route('menus.show', $item['id']) }} " class="bg-[var(--h-color8)]  text-gray-600 w-[150px] h-[50px] my-1 pl-3 flex items-center">
+                {{ $item['title_ru'] }}
+            </a>
         @endforeach
     </div>
 
@@ -41,7 +43,7 @@
         </div>
     </div>
 </section>
-<hr>
+
 
 <!-- RECENT ITEMS -->
 

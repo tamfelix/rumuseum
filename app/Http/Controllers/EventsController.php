@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\blog;
-use App\Models\Event;
+use App\Models\Download;
 use App\Models\Image;
 use App\Models\Page;
 use App\Models\Symbol;
@@ -19,7 +19,7 @@ class EventsController extends Controller
     public function index()
     {
         $menuitems = Page::orderBy('orderby', 'asc')->get(['id', 'title', 'link',])->toArray();
-        $paginator = Event::paginate(10);
+        $paginator = Download::paginate(10);
         $symbols = Symbol::all()->pluck('svg','id');
         return view('default.events')->with([
             'menuitems' => $menuitems,
@@ -58,7 +58,7 @@ class EventsController extends Controller
     public function show($id)
     {
         $menuitems = Page::orderBy('orderby', 'asc')->get(['id', 'title', 'link',])->toArray();
-        $event = Event::where('id', $id)->get()->toArray();
+        $event = Download::where('id', $id)->get()->toArray();
         $symbols = Symbol::all()->pluck('svg','id');
         return view('default.event')->with([
             'menuitems' => $menuitems,

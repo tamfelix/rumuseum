@@ -1,6 +1,6 @@
 <?php
 return [
-    'museum' => 'Музей Румянцева',
+    'museum' => 'Румянцевский Музей ',
     'slavistics' => 'отдел славистики',
     'banner1' => 'explore our collections',
     'button' => 'перейти',
@@ -8,5 +8,7 @@ return [
     'sponsor' => 'помочь музею',
     'events' => 'события',
     'new' => 'недавно добавленные',
+    'collections' => 'Коллекции по ',
+    'items' => 'Экспонаты по'
 
 ];

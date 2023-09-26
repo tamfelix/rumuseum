@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\blog;
-use App\Models\Event;
+use App\Models\Download;
 use App\Models\Email;
 use App\Models\Page;
 use App\Models\Product;
@@ -32,12 +32,15 @@ class PagesController extends Controller
         $this->news = blog::orderBy('created_at', 'asc')->take(4)->get();
         $this->menuitems = Page::orderBy('orderby', 'asc')->get()->toArray();
         $this->leftmenu = Menu::orderBy('orderby', 'asc')->get()->toArray();
-       $this->events = Event::orderBy('created_at', 'asc')->take(4)->get();
+       $this->events = Download::orderBy('created_at', 'asc')->take(4)->get();
        $this->articles = Stock::orderBy('created_at', 'asc')->take(8)->get();
     }
+
     public function index()
     {
-        return view('default.default')->with([
+        return view('layouts.default.default')->with([
+
+
             'menuitems' => $this->menuitems,
             'leftmenu' => $this->leftmenu,
             'news'=> $this->news,
@@ -76,10 +79,17 @@ class PagesController extends Controller
     public function show($id)
     {
 
-        $page = Page::where('id', '1')->pluck('name')->implode('');
+        $page = Page::where('id', $id)->pluck('title_en')->implode('');
 
-        return view("layouts.default.$page")->with([
-            'menuitems'=> $this->menuitems,
+        return view("layouts.default.timeline")->with([
+            'page' => $page,
+
+            'menuitems' => $this->menuitems,
+            'leftmenu' => $this->leftmenu,
+            'news'=> $this->news,
+            'events' => $this->events,
+            'articles' => $this->articles,
+
 
         ]);
     }

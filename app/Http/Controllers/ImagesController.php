@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
+use App\Models\Download;
 use App\Models\Image;
 use App\Models\Page;
 use App\Models\Symbol;

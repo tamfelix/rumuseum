@@ -7,7 +7,7 @@ declare(strict_types=1);
  *
  * (c) Colin O'Dell <colinodell@gmail.com>
  *
- * Original code based on the Symfony EventDispatcher "Event" contract
+ * Original code based on the Symfony EventDispatcher "Download" contract
  *  - (c) 2018-2019 Fabien Potencier
  *
  * For the full copyright and license information, please view the LICENSE

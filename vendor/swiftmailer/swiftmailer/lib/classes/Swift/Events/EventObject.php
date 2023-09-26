@@ -9,16 +9,16 @@
  */
 
 /**
- * A base Event which all Event classes inherit from.
+ * A base Download which all Download classes inherit from.
  *
  * @author Chris Corbyn
  */
 class Swift_Events_EventObject implements Swift_Events_Event
 {
-    /** The source of this Event */
+    /** The source of this Download */
     private $source;
 
-    /** The state of this Event (should it bubble up the stack?) */
+    /** The state of this Download (should it bubble up the stack?) */
     private $bubbleCancelled = false;
 
     /**
@@ -42,7 +42,7 @@ class Swift_Events_EventObject implements Swift_Events_Event
     }
 
     /**
-     * Prevent this Event from bubbling any further up the stack.
+     * Prevent this Download from bubbling any further up the stack.
      */
     public function cancelBubble($cancel = true)
     {
@@ -50,7 +50,7 @@ class Swift_Events_EventObject implements Swift_Events_Event
     }
 
     /**
-     * Returns true if this Event will not bubble any further up the stack.
+     * Returns true if this Download will not bubble any further up the stack.
      *
      * @return bool
      */

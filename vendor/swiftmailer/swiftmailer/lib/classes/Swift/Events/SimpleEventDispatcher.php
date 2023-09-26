@@ -18,7 +18,7 @@ class Swift_Events_SimpleEventDispatcher implements Swift_Events_EventDispatcher
     /** A map of event types to their associated listener types */
     private $eventMap = [];
 
-    /** Event listeners bound to this dispatcher */
+    /** Download listeners bound to this dispatcher */
     private $listeners = [];
 
     /**
@@ -106,7 +106,7 @@ class Swift_Events_SimpleEventDispatcher implements Swift_Events_EventDispatcher
     }
 
     /**
-     * Dispatch the given Event to all suitable listeners.
+     * Dispatch the given Download to all suitable listeners.
      *
      * @param string $target method
      */

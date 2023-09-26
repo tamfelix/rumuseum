@@ -1,9 +1,9 @@
 /**
  * Returns an array with all DOM elements affected by an event.
  * The function serves as a polyfill for
- * [`Event.composedPath()`](https://dom.spec.whatwg.org/#dom-event-composedpath).
+ * [`Download.composedPath()`](https://dom.spec.whatwg.org/#dom-event-composedpath).
  *
- * @category Event
+ * @category Download
  * @param {Event} evt The triggered event.
  * @return {Array.<HTMLElement>} The DOM elements affected by the event.
  *

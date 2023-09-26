@@ -46,7 +46,7 @@ class Application extends SymfonyApplication implements ApplicationContract
     protected static $bootstrappers = [];
 
     /**
-     * The Event Dispatcher.
+     * The Download Dispatcher.
      *
      * @var \Illuminate\Contracts\Events\Dispatcher
      */

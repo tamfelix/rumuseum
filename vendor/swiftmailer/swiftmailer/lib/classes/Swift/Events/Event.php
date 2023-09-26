@@ -9,7 +9,7 @@
  */
 
 /**
- * The minimum interface for an Event.
+ * The minimum interface for an Download.
  *
  * @author Chris Corbyn
  */
@@ -23,14 +23,14 @@ interface Swift_Events_Event
     public function getSource();
 
     /**
-     * Prevent this Event from bubbling any further up the stack.
+     * Prevent this Download from bubbling any further up the stack.
      *
      * @param bool $cancel, optional
      */
     public function cancelBubble($cancel = true);
 
     /**
-     * Returns true if this Event will not bubble any further up the stack.
+     * Returns true if this Download will not bubble any further up the stack.
      *
      * @return bool
      */

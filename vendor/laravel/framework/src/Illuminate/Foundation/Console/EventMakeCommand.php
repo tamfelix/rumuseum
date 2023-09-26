@@ -25,7 +25,7 @@ class EventMakeCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $type = 'Event';
+    protected $type = 'Download';
 
     /**
      * Determine if the class already exists.

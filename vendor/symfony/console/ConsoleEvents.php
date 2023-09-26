@@ -28,7 +28,7 @@ final class ConsoleEvents
      * executed by the console. It also allows you to modify the command, input and output
      * before they are handed to the command.
      *
-     * @Event("Symfony\Component\Console\Event\ConsoleCommandEvent")
+     * @Download("Symfony\Component\Console\Download\ConsoleCommandEvent")
      */
     public const COMMAND = 'console.command';
 
@@ -36,7 +36,7 @@ final class ConsoleEvents
      * The SIGNAL event allows you to perform some actions
      * after the command execution was interrupted.
      *
-     * @Event("Symfony\Component\Console\Event\ConsoleSignalEvent")
+     * @Download("Symfony\Component\Console\Download\ConsoleSignalEvent")
      */
     public const SIGNAL = 'console.signal';
 
@@ -44,7 +44,7 @@ final class ConsoleEvents
      * The TERMINATE event allows you to attach listeners after a command is
      * executed by the console.
      *
-     * @Event("Symfony\Component\Console\Event\ConsoleTerminateEvent")
+     * @Download("Symfony\Component\Console\Download\ConsoleTerminateEvent")
      */
     public const TERMINATE = 'console.terminate';
 
@@ -54,12 +54,12 @@ final class ConsoleEvents
      * This event allows you to deal with the exception/error or
      * to modify the thrown exception.
      *
-     * @Event("Symfony\Component\Console\Event\ConsoleErrorEvent")
+     * @Download("Symfony\Component\Console\Download\ConsoleErrorEvent")
      */
     public const ERROR = 'console.error';
 
     /**
-     * Event aliases.
+     * Download aliases.
      *
      * These aliases can be consumed by RegisterListenersPass.
      */

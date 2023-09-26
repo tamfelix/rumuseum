@@ -522,7 +522,7 @@ export default {
     },
 
     /**
-     * Determine whether this is a detail view for an Action Event
+     * Determine whether this is a detail view for an Action Download
      */
     isActionDetail() {
       return this.resourceName == 'action-events'

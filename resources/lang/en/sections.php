@@ -8,5 +8,7 @@ return [
     'sponsor' => 'sponsor',
     'events' => 'events',
     'new' => 'new artifacts',
+    'collections' => 'Collections for ',
+    'items' => 'Items for'
 
 ];

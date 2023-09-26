@@ -16,7 +16,7 @@ namespace League\CommonMark\Event;
 use League\CommonMark\Node\Block\Document;
 
 /**
- * Event dispatched just before rendering begins
+ * Download dispatched just before rendering begins
  */
 final class DocumentPreRenderEvent extends AbstractEvent
 {

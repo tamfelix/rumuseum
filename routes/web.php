@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\BlogsController;
-use App\Http\Controllers\EventsController;
+use App\Http\Controllers\DownloadsController;
 use App\Http\Controllers\MenusController;
 use App\Http\Controllers\ProductsController;
 /*
@@ -22,11 +22,14 @@ Route::get('/', 'PagesController@index');
 Route::resource('pages', 'PagesController');
 Route::resource('blogs', 'BlogsController');
 Route::resource('widgets', 'WidgetsController');
-Route::resource('events', 'EventsController');
+Route::resource('events', 'DownloadsController');
 Route::resource('stocks', 'StocksController');
 Route::resource('products', 'ProductsController');
 Route::resource('messages', 'MessagesController');
 Route::resource('menus', 'MenusController');
+Route::resource('collects', 'CollectsController');
+
+
 Route::get('ml', 'PagesController@ml');
 Route::get('hwr', 'PagesController@hwr');
 Route::get('contact', 'PagesController@contact');

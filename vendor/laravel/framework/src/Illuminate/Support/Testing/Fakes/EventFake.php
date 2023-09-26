@@ -78,7 +78,7 @@ class EventFake implements Dispatcher
         PHPUnit::assertTrue(
             false,
             sprintf(
-                'Event [%s] does not have the [%s] listener attached to it',
+                'Download [%s] does not have the [%s] listener attached to it',
                 $expectedEvent,
                 print_r($expectedListener, true)
             )

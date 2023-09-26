@@ -53,7 +53,7 @@ trait InstallsApiStack
 
         // Environment...
         if (! $files->exists(base_path('.env'))) {
-            copy(base_path('.env.example'), base_path('.env'));
+            copy(base_path('.env'), base_path('.env'));
         }
 
         $this->replaceInFile(

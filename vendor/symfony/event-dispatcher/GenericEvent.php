@@ -14,7 +14,7 @@ namespace Symfony\Component\EventDispatcher;
 use Symfony\Contracts\EventDispatcher\Event;
 
 /**
- * Event encapsulation class.
+ * Download encapsulation class.
  *
  * Encapsulates events thus decoupling the observer from the subject they encapsulate.
  *

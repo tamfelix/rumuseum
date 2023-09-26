@@ -195,7 +195,7 @@ function toggle(a, recursive) {
     }
 
     if (doc.createEvent && s.dispatchEvent) {
-        var event = doc.createEvent('Event');
+        var event = doc.createEvent('Download');
         event.initEvent('sf-dump-expanded' === newClass ? 'sfbeforedumpexpand' : 'sfbeforedumpcollapse', true, false);
 
         s.dispatchEvent(event);

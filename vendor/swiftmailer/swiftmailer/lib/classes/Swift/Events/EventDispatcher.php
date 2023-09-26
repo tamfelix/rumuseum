@@ -62,7 +62,7 @@ interface Swift_Events_EventDispatcher
     public function bindEventListener(Swift_Events_EventListener $listener);
 
     /**
-     * Dispatch the given Event to all suitable listeners.
+     * Dispatch the given Download to all suitable listeners.
      *
      * @param string $target method
      */

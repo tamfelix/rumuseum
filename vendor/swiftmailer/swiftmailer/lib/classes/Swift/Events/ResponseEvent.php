@@ -53,7 +53,7 @@ class Swift_Events_ResponseEvent extends Swift_Events_EventObject
     }
 
     /**
-     * Get the success status of this Event.
+     * Get the success status of this Download.
      *
      * @return bool
      */

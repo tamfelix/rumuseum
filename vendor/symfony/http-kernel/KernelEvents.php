@@ -34,7 +34,7 @@ final class KernelEvents
      * This event allows you to create a response for a request before any
      * other code in the framework is executed.
      *
-     * @Event("Symfony\Component\HttpKernel\Event\RequestEvent")
+     * @Download("Symfony\Component\HttpKernel\Download\RequestEvent")
      */
     public const REQUEST = 'kernel.request';
 
@@ -44,7 +44,7 @@ final class KernelEvents
      * This event allows you to create a response for a thrown exception or
      * to modify the thrown exception.
      *
-     * @Event("Symfony\Component\HttpKernel\Event\ExceptionEvent")
+     * @Download("Symfony\Component\HttpKernel\Download\ExceptionEvent")
      */
     public const EXCEPTION = 'kernel.exception';
 
@@ -55,7 +55,7 @@ final class KernelEvents
      * This event allows you to change the controller that will handle the
      * request.
      *
-     * @Event("Symfony\Component\HttpKernel\Event\ControllerEvent")
+     * @Download("Symfony\Component\HttpKernel\Download\ControllerEvent")
      */
     public const CONTROLLER = 'kernel.controller';
 
@@ -65,7 +65,7 @@ final class KernelEvents
      * This event allows you to change the arguments that will be passed to
      * the controller.
      *
-     * @Event("Symfony\Component\HttpKernel\Event\ControllerArgumentsEvent")
+     * @Download("Symfony\Component\HttpKernel\Download\ControllerArgumentsEvent")
      */
     public const CONTROLLER_ARGUMENTS = 'kernel.controller_arguments';
 
@@ -76,7 +76,7 @@ final class KernelEvents
      * This event allows you to create a response for the return value of the
      * controller.
      *
-     * @Event("Symfony\Component\HttpKernel\Event\ViewEvent")
+     * @Download("Symfony\Component\HttpKernel\Download\ViewEvent")
      */
     public const VIEW = 'kernel.view';
 
@@ -87,7 +87,7 @@ final class KernelEvents
      * This event allows you to modify or replace the response that will be
      * replied.
      *
-     * @Event("Symfony\Component\HttpKernel\Event\ResponseEvent")
+     * @Download("Symfony\Component\HttpKernel\Download\ResponseEvent")
      */
     public const RESPONSE = 'kernel.response';
 
@@ -97,7 +97,7 @@ final class KernelEvents
      * This event allows you to reset the global and environmental state of
      * the application, when it was changed during the request.
      *
-     * @Event("Symfony\Component\HttpKernel\Event\FinishRequestEvent")
+     * @Download("Symfony\Component\HttpKernel\Download\FinishRequestEvent")
      */
     public const FINISH_REQUEST = 'kernel.finish_request';
 
@@ -106,12 +106,12 @@ final class KernelEvents
      *
      * This event allows you to run expensive post-response jobs.
      *
-     * @Event("Symfony\Component\HttpKernel\Event\TerminateEvent")
+     * @Download("Symfony\Component\HttpKernel\Download\TerminateEvent")
      */
     public const TERMINATE = 'kernel.terminate';
 
     /**
-     * Event aliases.
+     * Download aliases.
      *
      * These aliases can be consumed by RegisterListenersPass.
      */

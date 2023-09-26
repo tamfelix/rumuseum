@@ -112,7 +112,7 @@ class Swift_Events_SendEvent extends Swift_Events_EventObject
     }
 
     /**
-     * Get the result of this Event.
+     * Get the result of this Download.
      *
      * The return value is a bitmask from
      * {@see RESULT_PENDING, RESULT_SUCCESS, RESULT_TENTATIVE, RESULT_FAILED}

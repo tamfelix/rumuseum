@@ -35,7 +35,7 @@ class EventListCommand extends Command
             return $this->error("Your application doesn't have any events matching the given criteria.");
         }
 
-        $this->table(['Event', 'Listeners'], $events);
+        $this->table(['Download', 'Listeners'], $events);
     }
 
     /**
@@ -58,7 +58,7 @@ class EventListCommand extends Command
         }
 
         return collect($events)->map(function ($listeners, $event) {
-            return ['Event' => $event, 'Listeners' => implode(PHP_EOL, $listeners)];
+            return ['Download' => $event, 'Listeners' => implode(PHP_EOL, $listeners)];
         })->sortBy('Event')->values()->toArray();
     }
 

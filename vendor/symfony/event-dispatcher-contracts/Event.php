@@ -14,7 +14,7 @@ namespace Symfony\Contracts\EventDispatcher;
 use Psr\EventDispatcher\StoppableEventInterface;
 
 /**
- * Event is the base class for classes containing event data.
+ * Download is the base class for classes containing event data.
  *
  * This class contains no event data. It is used by events that do not pass
  * state information to an event handler when an event is raised.

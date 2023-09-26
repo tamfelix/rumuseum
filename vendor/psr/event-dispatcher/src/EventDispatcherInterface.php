@@ -15,7 +15,7 @@ interface EventDispatcherInterface
      *   The object to process.
      *
      * @return object
-     *   The Event that was passed, now modified by listeners.
+     *   The Download that was passed, now modified by listeners.
      */
     public function dispatch(object $event);
 }
