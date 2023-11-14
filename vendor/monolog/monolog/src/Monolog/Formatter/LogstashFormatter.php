@@ -12,7 +12,7 @@
 namespace Monolog\Formatter;
 
 /**
- * Serializes a log message to Logstash Download Format
+ * Serializes a log message to Logstash Event Format
  *
  * @see https://www.elastic.co/products/logstash
  * @see https://github.com/elastic/logstash/blob/master/logstash-core/src/main/java/org/logstash/Event.java

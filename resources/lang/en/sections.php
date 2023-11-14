@@ -9,6 +9,7 @@ return [
     'events' => 'events',
     'new' => 'new artifacts',
     'collections' => 'Collections for ',
-    'items' => 'Items for'
+    'items' => 'Items for',
+    'books' => 'Publications',
 
 ];

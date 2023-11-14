@@ -26,7 +26,7 @@ use Monolog\Logger;
 class ZendMonitorHandler extends AbstractProcessingHandler
 {
     /**
-     * Monolog level / ZendMonitor Custom Download priority map
+     * Monolog level / ZendMonitor Custom Event priority map
      *
      * @var array<int, int>
      */

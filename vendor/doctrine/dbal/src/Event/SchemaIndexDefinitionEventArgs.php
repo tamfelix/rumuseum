@@ -6,7 +6,7 @@ use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Schema\Index;
 
 /**
- * Download Arguments used when the portable index definition is generated inside {@see AbstractSchemaManager}.
+ * Event Arguments used when the portable index definition is generated inside {@see AbstractSchemaManager}.
  *
  * @deprecated
  */

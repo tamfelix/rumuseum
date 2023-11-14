@@ -10,7 +10,7 @@ use function func_get_args;
 use function is_array;
 
 /**
- * Download Arguments used when SQL queries for creating tables are generated inside {@see AbstractPlatform}.
+ * Event Arguments used when SQL queries for creating tables are generated inside {@see AbstractPlatform}.
  *
  * @deprecated
  */
